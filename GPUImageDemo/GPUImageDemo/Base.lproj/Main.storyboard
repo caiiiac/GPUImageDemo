@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--GPUImage-->
         <scene sceneID="t1w-rT-lCi">
             <objects>
                 <tableViewController id="IxQ-Y8-hqG" sceneMemberID="viewController">
@@ -64,7 +64,7 @@
                             <outlet property="delegate" destination="IxQ-Y8-hqG" id="L6P-ul-xxw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="UdF-7o-2bO"/>
+                    <navigationItem key="navigationItem" title="GPUImage" id="UdF-7o-2bO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32k-HG-ymM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,7 +73,7 @@
         <!--View Controller-->
         <scene sceneID="xdw-gL-HnA">
             <objects>
-                <viewController id="emT-Qb-Ux9" sceneMemberID="viewController">
+                <viewController id="emT-Qb-Ux9" customClass="ViewController" customModule="GPUImageDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AAs-O5-yJt"/>
                         <viewControllerLayoutGuide type="bottom" id="ejx-6M-NAT"/>
@@ -81,8 +81,51 @@
                     <view key="view" contentMode="scaleToFill" id="MhD-bh-ule">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="k0Q-1x-ypw">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zof-Jh-akO">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="O27-BH-BtG"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7Ao-zS-8iA"/>
+                                    <barButtonItem title="高斯" id="oip-Q2-aTW">
+                                        <connections>
+                                            <action selector="didSelectedGaussianBlurFilter:" destination="emT-Qb-Ux9" id="7d6-9O-Qhq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8sD-FO-6YZ"/>
+                                    <barButtonItem title="素描" id="ZdA-dk-o2Q">
+                                        <connections>
+                                            <action selector="didSelectedSketchFilter:" destination="emT-Qb-Ux9" id="a0N-ru-Vs3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nRS-CT-mtA"/>
+                                    <barButtonItem title="Item" id="Z6c-Pf-BFL"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BH3-JI-zS9"/>
+                                    <barButtonItem title="Item" id="iyv-FH-aii"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2S9-7T-p81"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ejx-6M-NAT" firstAttribute="top" secondItem="k0Q-1x-ypw" secondAttribute="bottom" id="N1z-jD-Jr3"/>
+                            <constraint firstItem="ejx-6M-NAT" firstAttribute="top" secondItem="Zof-Jh-akO" secondAttribute="bottom" id="PcV-OO-MS2"/>
+                            <constraint firstAttribute="trailing" secondItem="Zof-Jh-akO" secondAttribute="trailing" id="ccb-nP-XlQ"/>
+                            <constraint firstItem="Zof-Jh-akO" firstAttribute="leading" secondItem="MhD-bh-ule" secondAttribute="leading" id="hgb-lY-USB"/>
+                            <constraint firstItem="k0Q-1x-ypw" firstAttribute="top" secondItem="AAs-O5-yJt" secondAttribute="bottom" id="p7U-Y6-knU"/>
+                            <constraint firstAttribute="trailing" secondItem="k0Q-1x-ypw" secondAttribute="trailing" id="qxE-Qg-ua0"/>
+                            <constraint firstItem="k0Q-1x-ypw" firstAttribute="leading" secondItem="MhD-bh-ule" secondAttribute="leading" id="zDg-l6-Uee"/>
+                        </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="k0Q-1x-ypw" id="jFU-iN-Caa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MlQ-t1-Ief" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,4 +150,7 @@
             <point key="canvasLocation" x="365.60000000000002" y="-203.74812593703149"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="test" width="640" height="960"/>
+    </resources>
 </document>
