@@ -104,9 +104,17 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nRS-CT-mtA"/>
-                                    <barButtonItem title="Item" id="Z6c-Pf-BFL"/>
+                                    <barButtonItem title="怀旧" id="Z6c-Pf-BFL">
+                                        <connections>
+                                            <action selector="didSelectedSepiaFilter:" destination="emT-Qb-Ux9" id="vtj-pl-1QU"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BH3-JI-zS9"/>
-                                    <barButtonItem title="Item" id="iyv-FH-aii"/>
+                                    <barButtonItem title="复原" id="iyv-FH-aii" userLabel="复原">
+                                        <connections>
+                                            <action selector="didSelectedRecovery:" destination="emT-Qb-Ux9" id="jKc-nJ-zfq"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="2S9-7T-p81"/>
                                 </items>
                             </toolbar>
@@ -151,6 +159,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="test" width="640" height="960"/>
+        <image name="test" width="640" height="1136"/>
     </resources>
 </document>
