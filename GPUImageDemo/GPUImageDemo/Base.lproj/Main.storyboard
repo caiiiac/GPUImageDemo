@@ -40,13 +40,25 @@
                                             <segue destination="emT-Qb-Ux9" kind="show" id="cE6-Y6-jw0"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="SgF-U9-3rJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="njB-yv-qNx" style="IBUITableViewCellStyleDefault" id="SgF-U9-3rJ">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SgF-U9-3rJ" id="Xws-e8-tPh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="美颜相机" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="njB-yv-qNx">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="GWm-F3-4th" kind="show" id="3FE-C7-s2a"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Omf-mJ-BnW">
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
@@ -69,6 +81,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32k-HG-ymM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1306.4000000000001" y="-202.84857571214394"/>
+        </scene>
+        <!--Still Camera View Controller-->
+        <scene sceneID="lrF-Gx-zmq">
+            <objects>
+                <viewController id="GWm-F3-4th" customClass="StillCameraViewController" customModule="GPUImageDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oBZ-Pi-uGP"/>
+                        <viewControllerLayoutGuide type="bottom" id="o6T-Ka-rmR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e66-zX-Gj5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hc6-mD-w2k">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jve-Tc-rTd">
+                                <rect key="frame" x="172" y="617" width="31" height="30"/>
+                                <state key="normal" title="拍照"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="GWm-F3-4th" eventType="touchUpInside" id="3lj-C5-ewz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o6T-Ka-rmR" firstAttribute="top" secondItem="hc6-mD-w2k" secondAttribute="bottom" id="2yX-gK-mj9"/>
+                            <constraint firstItem="o6T-Ka-rmR" firstAttribute="top" secondItem="jve-Tc-rTd" secondAttribute="bottom" constant="20" id="HfH-hO-MbJ"/>
+                            <constraint firstItem="jve-Tc-rTd" firstAttribute="centerX" secondItem="e66-zX-Gj5" secondAttribute="centerX" id="MeC-4J-KMd"/>
+                            <constraint firstItem="hc6-mD-w2k" firstAttribute="leading" secondItem="e66-zX-Gj5" secondAttribute="leading" id="bpA-2E-vdw"/>
+                            <constraint firstItem="hc6-mD-w2k" firstAttribute="top" secondItem="oBZ-Pi-uGP" secondAttribute="bottom" id="pCl-kX-Agk"/>
+                            <constraint firstAttribute="trailing" secondItem="hc6-mD-w2k" secondAttribute="trailing" id="qmA-sQ-gau"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageVIew" destination="hc6-mD-w2k" id="wHh-XN-TKT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZm-U9-XVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2089" y="202"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="xdw-gL-HnA">
@@ -137,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MlQ-t1-Ief" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2052" y="-203"/>
+            <point key="canvasLocation" x="2090" y="-448"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jIk-mB-3lb">

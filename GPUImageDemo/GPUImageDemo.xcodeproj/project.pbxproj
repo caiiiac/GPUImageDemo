@@ -15,6 +15,7 @@
 		2628D24C1F0A8BA3002B830B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2628D24A1F0A8BA3002B830B /* LaunchScreen.storyboard */; };
 		2628D2571F0A8BA3002B830B /* GPUImageDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2628D2561F0A8BA3002B830B /* GPUImageDemoTests.swift */; };
 		2628D2621F0A8BA3002B830B /* GPUImageDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2628D2611F0A8BA3002B830B /* GPUImageDemoUITests.swift */; };
+		26899AEC1F0BE20D00F00E3C /* StillCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26899AEB1F0BE20D00F00E3C /* StillCameraViewController.swift */; };
 		643DA0DF1411892A9ED6295B /* Pods_GPUImageDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0908901E49046DFFA687556B /* Pods_GPUImageDemoUITests.framework */; };
 		C56483C104A99457EB6AA774 /* Pods_GPUImageDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430FD43481F25602CF90AF7B /* Pods_GPUImageDemo.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		2628D25D1F0A8BA3002B830B /* GPUImageDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPUImageDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2628D2611F0A8BA3002B830B /* GPUImageDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPUImageDemoUITests.swift; sourceTree = "<group>"; };
 		2628D2631F0A8BA3002B830B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26899AEB1F0BE20D00F00E3C /* StillCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StillCameraViewController.swift; sourceTree = "<group>"; };
 		2A3D1609C8E8D4904A6612F2 /* Pods-GPUImageDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemoTests/Pods-GPUImageDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		430FD43481F25602CF90AF7B /* Pods_GPUImageDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPUImageDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44785E91CD7BE98A37D852D8 /* Pods-GPUImageDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemoTests/Pods-GPUImageDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				2628D2481F0A8BA3002B830B /* Assets.xcassets */,
 				2628D24A1F0A8BA3002B830B /* LaunchScreen.storyboard */,
 				2628D24D1F0A8BA3002B830B /* Info.plist */,
+				26899AEB1F0BE20D00F00E3C /* StillCameraViewController.swift */,
 			);
 			path = GPUImageDemo;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2628D2441F0A8BA3002B830B /* ViewController.swift in Sources */,
+				26899AEC1F0BE20D00F00E3C /* StillCameraViewController.swift in Sources */,
 				2628D2421F0A8BA3002B830B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,6 +704,7 @@
 				2628D2681F0A8BA3002B830B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2628D2691F0A8BA3002B830B /* Build configuration list for PBXNativeTarget "GPUImageDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -708,6 +713,7 @@
 				2628D26B1F0A8BA3002B830B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2628D26C1F0A8BA3002B830B /* Build configuration list for PBXNativeTarget "GPUImageDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -716,6 +722,7 @@
 				2628D26E1F0A8BA3002B830B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
