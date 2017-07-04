@@ -7,29 +7,55 @@
 //
 
 import UIKit
+import GPUImage
+
 
 class StillCameraViewController: UIViewController {
 
+    @IBOutlet weak var imageVIew: UIImageView!
+    
+    //高清前置摄像头
+    fileprivate lazy var camera : GPUImageStillCamera = GPUImageStillCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: .front)
+    
+    //美白/曝光滤镜
+    fileprivate lazy var filter = GPUImageBrightnessFilter()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //摄像头竖屏显示
+        camera.outputImageOrientation = .portrait
+        
+        //设置滤镜曝光度
+        filter.brightness = 0.3
+        //添加滤镜
+        camera.addTarget(filter)
+        
+        //创建GPUImageView,用于显示实时画面
+        let showView = GPUImageView(frame: view.bounds)
+        view.insertSubview(showView, at: 0)
+        filter.addTarget(showView)
+        
+        
+        //开始捕捉画面
+        camera.startCapture()
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    /// 拍照事件,保存图片到图库
+    ///
+    /// - Parameter sender: UIButton
+    @IBAction func takePhoto(_ sender: UIButton) {
+        camera.capturePhotoAsImageProcessedUp(toFilter: filter) { (image, error) in
+            
+            //保存图片
+            UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+            self.imageVIew.image = image
+            
+            self.camera.stopCapture()
+        }
     }
-    */
 
 }
