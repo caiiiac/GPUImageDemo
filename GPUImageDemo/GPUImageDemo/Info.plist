@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>美颜相机需要使用摄像头</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>需要保存拍摄的相片</string>
 </dict>
 </plist>
