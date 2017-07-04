@@ -12,7 +12,7 @@ import GPUImage
 class ViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-    private lazy var image : UIImage = UIImage(named: "test")!
+    private lazy var image : UIImage = UIImage(named: "onepice")!
     
     override func viewDidLoad() {
 
@@ -22,8 +22,8 @@ class ViewController: UIViewController {
     @IBAction func didSelectedGaussianBlurFilter(_ sender: UIBarButtonItem) {
         let filter = GPUImageGaussianBlurFilter()
         
-//        filter.texelSpacingMultiplier = 15
-        filter.blurRadiusInPixels = 5
+//        filter.texelSpacingMultiplier = 2
+        filter.blurRadiusInPixels = 20
         imageView.image = processImage(filter)
     }
 
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
     
     private func processImage(_ filter : GPUImageFilter) -> UIImage? {
-        // 如果是对图像进行处理GPUImagePicture
+        // 创建处理图片的GPUImagePicture
         let picProcess = GPUImagePicture(image: image)
         
         // 添加需要处理的滤镜
