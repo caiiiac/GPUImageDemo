@@ -11,15 +11,13 @@ import GPUImage
 
 
 class StillCameraViewController: UIViewController {
-
-    @IBOutlet weak var imageVIew: UIImageView!
     
     //高清前置摄像头
     fileprivate lazy var camera : GPUImageStillCamera = GPUImageStillCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: .front)
     
     //美白/曝光滤镜
     fileprivate lazy var filter = GPUImageBrightnessFilter()
-    
+    private lazy var isPause : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +26,7 @@ class StillCameraViewController: UIViewController {
         camera.outputImageOrientation = .portrait
         
         //设置滤镜曝光度
-        filter.brightness = 0.3
+        filter.brightness = 0.2
         //添加滤镜
         camera.addTarget(filter)
         
@@ -48,14 +46,22 @@ class StillCameraViewController: UIViewController {
     ///
     /// - Parameter sender: UIButton
     @IBAction func takePhoto(_ sender: UIButton) {
-        camera.capturePhotoAsImageProcessedUp(toFilter: filter) { (image, error) in
-            
-            //保存图片
-            UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-            self.imageVIew.image = image
-            
-            self.camera.stopCapture()
+        
+        guard isPause else {
+            camera.capturePhotoAsImageProcessedUp(toFilter: filter) { (image, error) in
+                
+                //保存图片
+                UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+                
+                self.camera.pauseCapture()
+                self.isPause = true
+            }
+            return
         }
+        
+        camera.resumeCameraCapture()
+        isPause = false
+        
     }
 
 }

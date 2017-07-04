@@ -245,6 +245,7 @@
 				TargetAttributes = {
 					2628D23D1F0A8BA3002B830B = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = DYFN6FYPTF;
 						ProvisioningStyle = Automatic;
 					};
 					2628D2511F0A8BA3002B830B = {
@@ -606,6 +607,7 @@
 			baseConfigurationReference = D34840FE5D50C7EC8650130F /* Pods-GPUImageDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DYFN6FYPTF;
 				INFOPLIST_FILE = GPUImageDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.caiiiac.GPUImageDemo;
@@ -619,6 +621,7 @@
 			baseConfigurationReference = 11C96D952BBFDB31B5039FB0 /* Pods-GPUImageDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DYFN6FYPTF;
 				INFOPLIST_FILE = GPUImageDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.caiiiac.GPUImageDemo;
