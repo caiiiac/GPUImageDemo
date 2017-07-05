@@ -60,13 +60,25 @@
                                             <segue destination="GWm-F3-4th" kind="show" id="3FE-C7-s2a"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Omf-mJ-BnW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="WN1-lH-RDJ" style="IBUITableViewCellStyleDefault" id="Omf-mJ-BnW">
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Omf-mJ-BnW" id="gXF-B8-x7P">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="直播" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WN1-lH-RDJ">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="GNY-zy-RNO" kind="show" id="0Oa-AH-6Dg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -81,6 +93,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32k-HG-ymM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1306.4000000000001" y="-202.84857571214394"/>
+        </scene>
+        <!--Video Camera View Controller-->
+        <scene sceneID="BQR-Qd-t6G">
+            <objects>
+                <viewController id="GNY-zy-RNO" customClass="VideoCameraViewController" customModule="GPUImageDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZqG-Q9-SDT"/>
+                        <viewControllerLayoutGuide type="bottom" id="pGK-3T-HMb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mqy-1e-D0D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8y-XI-Kjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1306" y="545"/>
         </scene>
         <!--Still Camera View Controller-->
         <scene sceneID="lrF-Gx-zmq">
