@@ -28,8 +28,6 @@ class VideoCameraViewController: UIViewController {
     let satureationFilter = GPUImageSaturationFilter()  //饱和
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,7 +73,7 @@ class VideoCameraViewController: UIViewController {
     }
 
 
-    
+
 }
 
 //MARK: - 事件方法
@@ -112,6 +110,27 @@ extension VideoCameraViewController {
         UIView.animate(withDuration: 0.3) { 
             self.view.layoutIfNeeded()
         }
+    }
+    
+    //饱和值
+    @IBAction func changeSatureation(_ sender: UISlider) {
+        satureationFilter.saturation = CGFloat(sender.value * 2)
+    }
+    
+    //美白值
+    @IBAction func changeBrightness(_ sender: UISlider) {
+        // - 0.5 --> 0.5
+        brightnessFilter.brightness = CGFloat(sender.value) - 0.5
+    }
+    
+    //曝光度
+    @IBAction func changeExposure(_ sender: UISlider) {
+        // - 2 ~ 2
+        exposureFilter.exposure = CGFloat(sender.value) * 4 - 2
+    }
+    //磨皮
+    @IBAction func changeBilateral(_ sender: UISlider) {
+        bilateralFilter.distanceNormalizationFactor = CGFloat(sender.value) * 8
     }
 }
 

@@ -119,6 +119,9 @@
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9yh-G4-228">
                                         <rect key="frame" x="75" y="207" width="282" height="31"/>
                                         <color key="minimumTrackTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="changeSatureation:" destination="GNY-zy-RNO" eventType="valueChanged" id="ds0-L9-57Q"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美白" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RI4-Tr-ttq">
                                         <rect key="frame" x="20" y="178" width="27" height="16"/>
@@ -141,14 +144,23 @@
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="GiC-Td-BeW">
                                         <rect key="frame" x="75" y="171" width="282" height="31"/>
                                         <color key="minimumTrackTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="changeBrightness:" destination="GNY-zy-RNO" eventType="valueChanged" id="g2f-4d-nhv"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bIc-RK-dER">
                                         <rect key="frame" x="75" y="135" width="282" height="31"/>
                                         <color key="minimumTrackTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="changeExposure:" destination="GNY-zy-RNO" eventType="valueChanged" id="3CD-Br-hOp"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YQ0-DC-xWy">
                                         <rect key="frame" x="75" y="99" width="282" height="31"/>
                                         <color key="minimumTrackTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="changeBilateral:" destination="GNY-zy-RNO" eventType="valueChanged" id="ZiS-qD-T2P"/>
+                                        </connections>
                                     </slider>
                                     <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywi-aG-z70">
                                         <rect key="frame" x="20" y="68" width="335" height="1"/>
