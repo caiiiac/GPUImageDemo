@@ -12,12 +12,14 @@ import GPUImage
 
 class VideoCameraViewController: UIViewController {
 
+    @IBOutlet weak var beautyViewBottomCons: NSLayoutConstraint!
+    
     //MARK: - lazy
     //视频源
-    private lazy var camera : GPUImageVideoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: .front)
+    fileprivate lazy var camera : GPUImageVideoCamera? = GPUImageVideoCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: .front)
 
     //预览图层
-    private lazy var preview : GPUImageView = GPUImageView(frame: self.view.bounds)
+    fileprivate lazy var preview : GPUImageView = GPUImageView(frame: self.view.bounds)
     
     //初始化滤镜
     let bilateralFilter = GPUImageBilateralFilter()     //磨皮
@@ -31,12 +33,13 @@ class VideoCameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupCamera()
     }
     
     private func setupCamera() {
         //设置camera方向
-        camera.outputImageOrientation = .portrait
-        camera.horizontallyMirrorFrontFacingCamera = true
+        camera?.outputImageOrientation = .portrait
+        camera?.horizontallyMirrorFrontFacingCamera = true
         
         //添加预览图层
         view.insertSubview(preview, at: 0)
@@ -46,17 +49,17 @@ class VideoCameraViewController: UIViewController {
         
         
         //设置GPUImage的响应链
-        camera.addTarget(filterGroup)
+        camera?.addTarget(filterGroup)
         filterGroup.addTarget(preview)
         
         //开始采集视频
-        camera.startCapture()
+        camera?.startCapture()
         
-        camera.delegate = self
+        camera?.delegate = self
     }
     
     //创建滤镜组
-    private func getGroupFilters() -> GPUImageFilterGroup {
+    fileprivate func getGroupFilters() -> GPUImageFilterGroup {
         let filterGroup = GPUImageFilterGroup()
         
         //设置滤镜链接关系
@@ -70,8 +73,47 @@ class VideoCameraViewController: UIViewController {
         
         return filterGroup
     }
+
+
+    
 }
 
+//MARK: - 事件方法
+extension VideoCameraViewController {
+    //切换镜头
+    @IBAction func rotateCamera(_ sender: UIBarButtonItem) {
+        camera?.rotateCamera()
+    }
+    
+    //开启关闭滤镜
+    @IBAction func switchBeautyEffect(_ sender: UISwitch) {
+        if sender.isOn {
+            camera?.removeAllTargets()
+            let groups = getGroupFilters()
+            camera?.addTarget(groups)
+            groups.addTarget(preview)
+        } else {
+            camera?.removeAllTargets()
+            camera?.addTarget(preview)
+        }
+    }
+    
+    //显示滤镜调整View
+    @IBAction func adjustBeautyEffect(_ sender: UIBarButtonItem) {
+        adjustBeautyView(constant: 0)
+    }
+    //完成隐藏
+    @IBAction func finishedBeautyEffect(_ sender: UIButton) {
+        adjustBeautyView(constant: 250)
+    }
+    
+    private func adjustBeautyView(constant : CGFloat) {
+        beautyViewBottomCons.constant = constant
+        UIView.animate(withDuration: 0.3) { 
+            self.view.layoutIfNeeded()
+        }
+    }
+}
 
 //MARK: - GPUImageVideoCameraDelegate
 
