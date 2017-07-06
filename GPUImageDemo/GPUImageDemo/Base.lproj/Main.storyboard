@@ -247,6 +247,16 @@
                                     <action selector="adjustBeautyEffect:" destination="GNY-zy-RNO" id="AEb-S4-q0T"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="Stop" id="YGc-pU-UWn">
+                                <connections>
+                                    <action selector="stopRecording:" destination="GNY-zy-RNO" id="ocB-8H-Q4O"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="play" id="eke-uH-T5z">
+                                <connections>
+                                    <action selector="playVideo:" destination="GNY-zy-RNO" id="piQ-5o-Uqj"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>

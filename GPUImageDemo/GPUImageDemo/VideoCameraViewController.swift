@@ -8,7 +8,7 @@
 
 import UIKit
 import GPUImage
-
+import AVKit
 
 class VideoCameraViewController: UIViewController {
 
@@ -27,6 +27,16 @@ class VideoCameraViewController: UIViewController {
     let brightnessFilter = GPUImageBrightnessFilter()   //美白
     let satureationFilter = GPUImageSaturationFilter()  //饱和
     
+    //视频保存路径
+    fileprivate lazy var fileURL : URL = URL(fileURLWithPath: "\(NSTemporaryDirectory())movie\(arc4random_uniform(100)).mp4")
+    
+    //保存视频对象
+    fileprivate lazy var movieWriter : GPUImageMovieWriter = { [unowned self] in
+        //创建写入对象
+        let writer = GPUImageMovieWriter(movieURL: self.fileURL, size: self.view.bounds.size)
+        
+        return writer!
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +64,17 @@ class VideoCameraViewController: UIViewController {
         camera?.startCapture()
         
         camera?.delegate = self
+        
+        
+        //设置writer属性
+        movieWriter.encodingLiveVideo = true
+        //将writer设置成滤镜的target
+        filterGroup.addTarget(movieWriter)
+        
+        //设置camera的编码
+        camera?.audioEncodingTarget = movieWriter
+        
+        movieWriter.startRecording()
     }
     
     //创建滤镜组
@@ -71,8 +92,6 @@ class VideoCameraViewController: UIViewController {
         
         return filterGroup
     }
-
-
 
 }
 
@@ -138,6 +157,25 @@ extension VideoCameraViewController {
 
 extension VideoCameraViewController : GPUImageVideoCameraDelegate {
     func willOutputSampleBuffer(_ sampleBuffer: CMSampleBuffer!) {
-        print("采集到画面")
+//        print("采集到画面")
     }
+}
+
+//MARK: - stop 播放事件
+
+extension VideoCameraViewController {
+    @IBAction func stopRecording(_ sender: UIBarButtonItem) {
+        camera?.stopCapture()
+        camera?.removeAllTargets()
+        preview.removeFromSuperview()
+        movieWriter.finishRecording()
+    }
+    @IBAction func playVideo(_ sender: UIBarButtonItem) {
+
+        let playerVc = AVPlayerViewController()
+        playerVc.player = AVPlayer(url: fileURL)
+        playerVc.player?.play()
+        present(playerVc, animated: true, completion: nil)
+    }
+    
 }
