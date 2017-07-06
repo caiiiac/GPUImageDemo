@@ -20,7 +20,7 @@ class VideoCameraViewController: UIViewController {
 
     //预览图层
     fileprivate lazy var preview : GPUImageView = GPUImageView(frame: self.view.bounds)
-    
+
     //初始化滤镜
     let bilateralFilter = GPUImageBilateralFilter()     //磨皮
     let exposureFilter = GPUImageExposureFilter()       //曝光
@@ -62,7 +62,6 @@ class VideoCameraViewController: UIViewController {
         
         //开始采集视频
         camera?.startCapture()
-        
         camera?.delegate = self
         
         
@@ -73,7 +72,7 @@ class VideoCameraViewController: UIViewController {
         
         //设置camera的编码
         camera?.audioEncodingTarget = movieWriter
-        
+        //开始写入
         movieWriter.startRecording()
     }
     
@@ -157,7 +156,7 @@ extension VideoCameraViewController {
 
 extension VideoCameraViewController : GPUImageVideoCameraDelegate {
     func willOutputSampleBuffer(_ sampleBuffer: CMSampleBuffer!) {
-//        print("采集到画面")
+        print("采集到画面")
     }
 }
 

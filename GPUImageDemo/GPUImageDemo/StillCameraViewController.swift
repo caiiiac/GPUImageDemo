@@ -15,17 +15,23 @@ class StillCameraViewController: UIViewController {
     //高清前置摄像头
     fileprivate lazy var camera : GPUImageStillCamera = GPUImageStillCamera(sessionPreset: AVCaptureSessionPresetHigh, cameraPosition: .front)
     
-    //美白/曝光滤镜
+    //美白滤镜
     fileprivate lazy var filter = GPUImageBrightnessFilter()
     private lazy var isPause : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        setupCamera()
+    }
+
+    //设置摄像头
+    private func setupCamera() {
         //摄像头竖屏显示
         camera.outputImageOrientation = .portrait
         
-        //设置滤镜曝光度
+        //设置滤镜亮度
         filter.brightness = 0.2
         //添加滤镜
         camera.addTarget(filter)
@@ -38,9 +44,7 @@ class StillCameraViewController: UIViewController {
         
         //开始捕捉画面
         camera.startCapture()
-        
     }
-
     
     /// 拍照事件,保存图片到图库
     ///
